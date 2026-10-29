@@ -1,0 +1,11 @@
+{
+  "name": "roblox-games-tests",
+  "private": true,
+  "description": "Simulierte Roblox-Umgebung zum Testen der Spielskripte",
+  "scripts": {
+    "test": "node run-all.js"
+  },
+  "dependencies": {
+    "fengari": "0.1.4"
+  }
+}
