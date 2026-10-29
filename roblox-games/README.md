@@ -56,8 +56,34 @@ Der Code ist nur die halbe Miete. Ob ein Spiel groß wird, entscheidet vor allem
 
 Robux in echtes Geld umtauschen geht über das **Developer Exchange (DevEx)**-Programm. Voraussetzungen laut Roblox (Stand kann sich ändern – bitte auf der offiziellen Seite prüfen): mindestens 13 Jahre alt (bei Minderjährigen braucht es die Zustimmung der Eltern), verifiziertes Konto, eine Mindestmenge an *verdienten* Robux und Einhaltung der Roblox-Regeln.
 
+## Marketing-Dateien
+
+In `marketing/<spiel>/` liegen pro Spiel:
+
+| Datei | Wofür |
+|-------|-------|
+| `icon-512.png` | Spiel-Icon (Creator Dashboard → Places → Icon) |
+| `thumbnail-1920x1080.png` | Thumbnail (Creator Dashboard → Places → Thumbnails) |
+| `promo-1080x1920.mp4` | 10-Sekunden-Clip für TikTok, YouTube Shorts, Instagram Reels (stumm – Sound in der App hinzufügen) |
+
+Die Bilder und Videos werden aus Code erzeugt (`marketing/tools/`). Ändern und neu rendern:
+`node marketing/tools/render.js <ordner-mit-LilitaOne-Regular.ttf> <ausgabe-ordner> [stills|videos|all] [obby clicker tycoon disaster garden]`
+(benötigt Node.js, Playwright und ffmpeg).
+
+## Tests
+
+`tests/` enthält eine nachgebaute Mini-Roblox-Umgebung (Instanzen, Events, DataStores, Käufe, virtuelle Zeit). Darin laufen die echten Skripte, und simulierte Spieler treten bei, klicken, kaufen, spielen Runden und verlassen das Spiel.
+
+```bash
+cd tests
+npm install
+npm test
+```
+
+Physik (Förderband, Sprünge, Meteore) kann die Simulation nicht prüfen – das testest du in Roblox Studio.
+
 ## Wichtig zu wissen
 
-- Die Skripte sind syntaktisch geprüft, wurden aber **nicht in Roblox Studio selbst** getestet. Teste jedes Spiel einmal mit *Play* und mit *Test → Start (2 Players)*, bevor du es veröffentlichst. Fehler erscheinen im *Output*-Fenster.
+- Die Skripte sind syntaktisch geprüft und in einer simulierten Roblox-Umgebung getestet (siehe Tests), aber **nicht in Roblox Studio selbst**. Teste jedes Spiel einmal mit *Play* und mit *Test → Start (2 Players)*, bevor du es veröffentlichst. Fehler erscheinen im *Output*-Fenster.
 - Niemand kann garantieren, dass ein Spiel viel gespielt wird oder Geld bringt – auf Roblox gibt es Millionen Spiele. Die Genres hier sind aber genau die, die auf Roblox am meisten Geld verdienen.
 - Halte dich an die [Roblox Community Standards](https://en.help.roblox.com/hc/articles/203313410) (keine irreführenden Thumbnails, keine „Free Robux“-Versprechen), sonst kann das Spiel gesperrt werden.
