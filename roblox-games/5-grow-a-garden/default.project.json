@@ -1,0 +1,14 @@
+{
+  "name": "GardenGrow",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "Main": { "$path": "src/server/Main.server.lua" }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Main": { "$path": "src/client/Main.client.lua" }
+      }
+    }
+  }
+}
